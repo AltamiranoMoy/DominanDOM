@@ -1,0 +1,47 @@
+body {
+  background: #111;
+  color: #eee;
+  font-family: Arial;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+#circle, #redCircle, #greenCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+#circle { background: black; }
+#redCircle { background: red; }
+#greenCircle { background: green; }
+
+#wrapMove {
+  position: relative;
+  height: 50px;
+}
+
+#boxMove {
+  width: 30px;
+  height: 30px;
+  background: white;
+  position: absolute;
+}
+
+#limit {
+  position: absolute;
+  right: 0;
+  width: 5px;
+  height: 30px;
+  background: green;
+}
+
+.balloon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: pink;
+  display: inline-block;
+}
