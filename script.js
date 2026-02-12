@@ -86,6 +86,7 @@ Cambia su texto.*/
 /*************************************************
  * EJERCICIO 4
  * Evento simple
+ * Al dar clik en el boton funciona aparece una alerta con el mismo texto
  *************************************************/
 
 // Al hacer clic en el botón con id "btnUnico"
@@ -94,6 +95,7 @@ document.querySelector("#btnUnico").onclick = () => alert("Funciona");
 /*************************************************
  * EJERCICIO 5
  * Función separada para evento
+ * Al dar click  en el boton WORLD se muestra el texto HELLO en el input
  *************************************************/
 function completarTexto() {
 document.querySelector("#input5").value ="HELLO";
@@ -102,6 +104,8 @@ document.querySelector("#btn5").onclick = completarTexto;
 /*************************************************
  * EJERCICIOS 6 y 7
  * Mouse enter y mouse leave
+ * Al mover el mouse al ciculo se pinta en naranja 
+ * Al retirar el mouse del circulo se pinta en negro
  *************************************************/
 // Selecciona el elemento con id "circle"
 const circle = document.querySelector("#circle");
@@ -117,6 +121,7 @@ circle.addEventListener("mouseleave", () =>
 /*************************************************
  * EJERCICIO 8
  * Movimiento con el mouse
+ * Al mover el mouse el recuadro se mueve a la derecha
  *************************************************/
 // 👉 Selecciona el contenedor
 // Agrega un evento cuando el mouse se mueve dentro del contenedor
