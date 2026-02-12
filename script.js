@@ -82,3 +82,54 @@ Cambia su texto.*/
   document.querySelectorAll("#lista li:not(#deshabilitado)")
 .forEach(li =>li.textContent = "Cambio de id");
 };
+
+/*************************************************
+ * EJERCICIO 4
+ * Evento simple
+ *************************************************/
+
+// Al hacer clic en el botón con id "btnUnico"
+// se muestra una alerta
+document.querySelector("#btnUnico").onclick = () => alert("Funciona"); 
+/*************************************************
+ * EJERCICIO 5
+ * Función separada para evento
+ *************************************************/
+function completarTexto() {
+document.querySelector("#input5").value ="HELLO";
+}
+document.querySelector("#btn5").onclick = completarTexto;
+/*************************************************
+ * EJERCICIOS 6 y 7
+ * Mouse enter y mouse leave
+ *************************************************/
+// Selecciona el elemento con id "circle"
+const circle = document.querySelector("#circle");
+
+// Cuando el mouse entra al círculo, cambia el color de fondo
+circle.addEventListener("mouseenter", () =>
+  circle.style.background = "orange"
+);
+// Cuando el mouse sale del círculo, vuelve a negro
+circle.addEventListener("mouseleave", () =>
+  circle.style.background = "black"
+);
+/*************************************************
+ * EJERCICIO 8
+ * Movimiento con el mouse
+ *************************************************/
+// 👉 Selecciona el contenedor
+// Agrega un evento cuando el mouse se mueve dentro del contenedor
+ document.querySelector("wrapMove").addEventListener("mosemove", () =>{
+
+// 👉 Selecciona el rectángulo
+document.querySelector("boxMove");
+
+// 👉 Cada movimiento del mouse:
+// 👉 mueve el rectángulo 1px a la derecha
+// ❓ Pista: offsetLeft + "px"
+box.style.left = offsetLeft  + 1  + px; 
+
+});
+
+
