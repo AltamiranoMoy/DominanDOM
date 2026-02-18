@@ -125,16 +125,54 @@ circle.addEventListener("mouseleave", () =>
  *************************************************/
 // 👉 Selecciona el contenedor
 // Agrega un evento cuando el mouse se mueve dentro del contenedor
- document.querySelector("wrapMove").addEventListener("mosemove", () =>{
+document.querySelector("#wrapMove").addEventListener("mousemove", () => {
 
 // 👉 Selecciona el rectángulo
-document.querySelector("boxMove");
-
+const box = document.querySelector("#boxMove");
 // 👉 Cada movimiento del mouse:
 // 👉 mueve el rectángulo 1px a la derecha
 // ❓ Pista: offsetLeft + "px"
-box.style.left = offsetLeft  + 1  + px; 
-
+box.style.left = box.offsetLeft  + 1  + "px"; 
 });
+/*************************************************
+ * EJERCICIO 9
+ * Drag & Drop
+ *************************************************/
+
+// 👉 Selecciona el cuadrado rojo
+const red = document.querySelector("#red");
 
 
+
+// 👉 Selecciona el cuadrado azul
+const blue = document.querySelector("#blue");
+
+// 👉 Permite arrastrar el rojo
+red.ondragstart = e =>
+ 
+  // Guarda un dato en el objeto drag
+  e.dataTransfer.setData("id", "red");
+  
+// 👉 Permite soltarlo en el azul
+blue.ondragover = e => e.preventDefault();
+blue.ondrop = e =>
+blue.appendChild(red);  
+
+
+
+/*************************************************
+ * EJERCICIO 10
+ * Eliminar elemento del DOM
+ *************************************************/
+
+// 👉 Selecciona el botón
+document.querySelector("#deleteRed").onclick  = () =>
+
+document.querySelector("#redCircle").remove();
+
+// 👉 Al hacer click:
+// 👉 elimina el círculo rojo COMPLETAMENTE
+// ❓ Usa remove()
+//11
+document.querySelector("#btn11").onclick  = () =>
+document.querySelector("input").id = "entradaEl";  
