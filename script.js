@@ -173,6 +173,62 @@ document.querySelector("#redCircle").remove();
 // 👉 Al hacer click:
 // 👉 elimina el círculo rojo COMPLETAMENTE
 // ❓ Usa remove()
-//11
+/*************************************************
+ * EJERCICIO 11
+ * Cambiar ID del elemento HTML
+ *************************************************/
 document.querySelector("#btn11").onclick  = () =>
 document.querySelector("input").id = "entradaEl";  
+/*************************************************
+ * EJERCICIO 12
+ * Crear y envolver elementos
+ *************************************************/
+// Selecciona el botón
+const btn12 = document.querySelector("#btn12");
+
+// Crea un nuevo div
+const wrap = document.createElement("div");
+
+// Asigna un id al div
+wrap.id = "envolver";
+
+// Inserta el div antes del botón
+btn12.parentNode.insertBefore(wrap, btn12);
+
+// Mueve el botón dentro del div
+wrap.appendChild(btn12);
+
+// Al hacer clic, cambia el texto del botón
+btn12.onclick = () => btn12.textContent = "Envuelto OK";
+
+
+/*************************************************
+ * EJERCICIO 13
+ * Crear elementos dinámicamente
+ *************************************************/
+
+// Al hacer clic en el botón de agregar
+document.querySelector("#addTodo").onclick = () => {
+
+  // Crea un nuevo <li>
+  const li = document.createElement("li");
+
+  // Asigna el texto del input al <li>
+  li.textContent = todoInput.value;
+
+  // Agrega el <li> a la lista
+  todoList.appendChild(li);
+};
+
+
+/*************************************************
+ * EJERCICIO 14
+ * Manipular checkbox
+ *************************************************/
+
+// Al hacer clic en el botón
+document.querySelector("#checkBtn").onclick = () =>
+
+  // Marca el checkbox
+  document.querySelector("#check").checked = true;
+
