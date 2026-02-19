@@ -1,3 +1,12 @@
+function sumarDosNumeros (numero1,numero2){
+        let resultado; 
+        resultado = numero1 + numero2;
+        return resultado;
+}
+const precio = 100
+const iva = precio * 0.16
+const total = sumarDosNumeros(precio,iva)  
+
 /*************************************************
  * EJERCICIO 1
  * Selección de elementos descendientes
@@ -69,6 +78,7 @@ listItems.forEach(li =>
 document.querySelector("#btn3").onclick = () =>{
   //#btn3 Selector por id.
 //.onclick Evento click.
+
 
 
 //querySelectorAll selecciona todos los elementos de la lista id lista elementos li y el id deshablilitado
@@ -178,7 +188,7 @@ document.querySelector("#redCircle").remove();
  * Cambiar ID del elemento HTML
  *************************************************/
 document.querySelector("#btn11").onclick  = () =>
-document.querySelector("input").id = "entradaEl";  
+document.querySelector("#input11").id = "entradaEl";  
 /*************************************************
  * EJERCICIO 12
  * Crear y envolver elementos
@@ -231,4 +241,28 @@ document.querySelector("#checkBtn").onclick = () =>
 
   // Marca el checkbox
   document.querySelector("#check").checked = true;
+/*****************
+ * EJERCICIO 15
+ * Concatenar valores de inputs
+ *****************/
+const nameInput = document.querySelector("#name");
+const lastInput = document.querySelector("#last");
+const fullInput = document.querySelector("#full");
+const button  = document.querySelector("#btn15");
+
+button.addEventListener("click", function () {
+    fullInput.value = nameInput.value + " " + lastInput.value;
+});
+
+/*
+document.querySelector("#btn15").onclick = () =>
+  ull.value = `${name.value} ${last.value}`;
+
+  */
+/*****************
+ * EJERCICIO 16
+ * Contador usando el evento
+
+*********************** */
+
 
