@@ -44,7 +44,7 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: pink;
+  background: rgb(85, 234, 5);
   display: inline-block;
 }
 

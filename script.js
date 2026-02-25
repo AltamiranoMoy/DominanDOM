@@ -147,25 +147,40 @@ box.style.left = box.offsetLeft  + 1  + "px";
 /*************************************************
  * EJERCICIO 9
  * Drag & Drop
+ * Al dar click al al cuadro azulse puede arrastrar al cuadro rojo 
+ * al soltar el cuadro azul se queda dentro del rojo
  *************************************************/
 
 // 👉 Selecciona el cuadrado rojo
 const red = document.querySelector("#red");
 
-
-
 // 👉 Selecciona el cuadrado azul
 const blue = document.querySelector("#blue");
 
-// 👉 Permite arrastrar el rojo
+/* 👉 Permite arrastrar el rojo ondragstart
+*= e =>  Es una arrow function.  e significa event (evento).
+Es el objeto que contiene información sobre lo que está pasando.
+*/
 red.ondragstart = e =>
  
   // Guarda un dato en el objeto drag
+  /*e.dataTransfer
+  dataTransfer es un objeto especial del sistema de Drag & Drop.
+Sirve para:Guardar información Pasarla al lugar donde se suelta el elemento
+setData("id", "red") Aquí estamos guardando un dato dentro del evento
+"id" → tipo de dato (puede ser cualquier etiqueta)
+"red" → valor que estamos guardando
+  */
   e.dataTransfer.setData("id", "red");
   
 // 👉 Permite soltarlo en el azul
+/*ondragover Se activa cuando estás arrastrando algo sobre el azul
+e.preventDefault()Cancela el comportamiento por defecto del navegador
+*/
 blue.ondragover = e => e.preventDefault();
+/*ondrop Se ejecuta cuando sueltas el elemento sobre el azul. */
 blue.ondrop = e =>
+  /*blue.appendChild(red);Mueve el elemento rojo dentro del azul */
 blue.appendChild(red);  
 
 
@@ -173,6 +188,7 @@ blue.appendChild(red);
 /*************************************************
  * EJERCICIO 10
  * Eliminar elemento del DOM
+ * Al dar click al boton eleminar rojo se desaparece el circulo rojo
  *************************************************/
 
 // 👉 Selecciona el botón
@@ -234,6 +250,7 @@ document.querySelector("#addTodo").onclick = () => {
 /*************************************************
  * EJERCICIO 14
  * Manipular checkbox
+ * al dar click al boton se marca el checkbox
  *************************************************/
 
 // Al hacer clic en el botón
@@ -244,6 +261,8 @@ document.querySelector("#checkBtn").onclick = () =>
 /*****************
  * EJERCICIO 15
  * Concatenar valores de inputs
+ * al llenal los 2 primeros inputs y dar click al boton unir
+ * se fucionan los 2 primeros inputs y los muestra en el 3ro
  *****************/
 const nameInput = document.querySelector("#name");
 const lastInput = document.querySelector("#last");
@@ -262,7 +281,87 @@ document.querySelector("#btn15").onclick = () =>
 /*****************
  * EJERCICIO 16
  * Contador usando el evento
-
+al dar click al boton va incrementando el contador
 *********************** */
+// Al hacer clic en el elemento contador
+document.querySelector("#counter").onclick = e =>
+// Incrementa el texto del elemento clicado
+e.target.textContent++;
 
 
+/*************************************************
+ * EJERCICIO 17
+ * Filtro de lista 
+ *************************************************/
+
+filter.oninput = function() {
+
+  // Convierte los hijos del elemento filterList en un arreglo real
+  // filterList.children devuelve un HTMLCollection (no es array)
+  // Array.from() lo convierte en un Array para poder usar forEach
+  var childrenArray = Array.from(filterList.children);
+
+   // Recorre cada elemento <li> dentro del arreglo
+  childrenArray.forEach(function(li) {
+
+    // Obtiene el texto que está dentro del <li>
+    // y lo convierte a minúsculas para evitar problemas con mayúsculas
+    var texto = li.textContent.toLowerCase();
+
+    // Obtiene lo que el usuario escribió en el input
+    // y lo convierte a minúsculas para comparar correctamente
+    var filtro = filter.value.toLowerCase();
+
+    // Verifica si el texto del <li> incluye lo que escribió el usuario
+    if (texto.includes(filtro)) {
+      
+      // Si coincide, deja el display vacío
+      // "" significa que usa el valor por defecto (normalmente "list-item")
+      // Esto hace que el elemento se muestre
+      li.style.display = "";
+    } else {
+      // Si NO coincide, cambia el display a "none"
+      // Esto oculta completamente el elemento
+      li.style.display = "none";
+    }
+
+  });
+
+};     
+// Cuando el usuario escribe en el input filtro
+/*
+
+  // Convierte los hijos de la lista en un arreglo
+  [...filterList.children].forEach(li =>
+
+    // Muestra u oculta el <li> según el texto
+    li.style.display = li.textContent
+      .toLowerCase()
+      .includes(filter.value.toLowerCase())
+        ? ""
+        : "none"
+  );
+};*/
+
+/*************************************************
+ * EJERCICIO 18
+ * Ocultar elementos al pasar el mouse
+ *************************************************/
+
+// Selecciona todos los elementos con clase "balloon"
+
+document.querySelectorAll(".balloon").forEach(e =>
+// Selecciona todos los elementos con clase "balloon"
+  // Al pasar el mouse, los oculta
+  e.onmouseover = () => e.style.visibility = "hidden"
+);
+
+
+
+
+/*************************************************
+ * EJERCICIO 19
+ * Animación con requestAnimationFrame
+ *************************************************/
+
+// Variable para controlar si se mueve o no
