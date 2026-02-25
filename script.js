@@ -1,11 +1,36 @@
+const porcentajeIva = 0.16
+
 function sumarDosNumeros (numero1,numero2){
-        let resultado; 
-        resultado = numero1 + numero2;
-        return resultado;
+  return numero1 + numero2;
 }
-const precio = 100
-const iva = precio * 0.16
-const total = sumarDosNumeros(precio,iva)  
+
+const sumarDosNumerosV2 = (numero1, numero2) => numero1 + numero2
+
+
+function calcularIva (precio) {
+  return precio * porcentajeIva
+}
+
+const calcularIvaV2 = precio => precio * porcentajeIva 
+
+function calcularTotal(precio) {
+  return sumarDosNumeros(precio, calcularIva(precio))
+}
+
+const calcularTotalV2 = precio => sumarDosNumerosV2(precio, calcularIvaV2(precio))
+
+function imprimirTotal(precio) {
+  console.log("Buen día, su total de hoy es " + calcularTotal(precio))
+}
+
+function rayarLaMadre() {
+  console.log("Chinga tu madre")
+}
+
+const rayarLaMadreV2 = () => console.warn("Chinga tu madre")
+
+//Evento
+//Emisor ---->(evento) ----> suscriptor llama al callback
 
 /*************************************************
  * EJERCICIO 1
@@ -41,7 +66,7 @@ const buttonElem = wrapper.querySelector("button");
 //function Texto() {
 //  inputElem.value = "DISTE CLICK";
 //}
-buttonElem.onclick = () => inputElem.value = "DISTE CLICK";
+buttonElem.onclick = rayarLaMadreV2;
 
 /*************************************************
  * EJERCICIO 2
