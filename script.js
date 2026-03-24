@@ -390,3 +390,33 @@ document.querySelectorAll(".balloon").forEach(e =>
  *************************************************/
 
 // Variable para controlar si se mueve o no
+let moving = true;
+
+// Selecciona el botón que se moverá
+const btn = document.querySelector("#movingBtn");
+
+// Función que mueve el botón
+function mover() {
+// Si no está activo, detiene la función
+  if (!moving) return;
+
+  // Mueve el botón 1px a la derecha
+  btn.style.left = btn.offsetLeft + 1 + "px";
+
+  // Llama nuevamente a la función
+  requestAnimationFrame(mover);
+}
+// Inicia el movimiento automáticamente
+mover();
+
+// Evento click del botón
+btn.addEventListener("click", () => {
+
+  // Cambia entre true y false
+  moving = !moving;
+
+  // Si vuelve a estar en true, reinicia el movimiento
+  if (moving) {
+    mover();
+  }
+});
